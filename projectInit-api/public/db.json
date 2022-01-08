@@ -1,0 +1,32 @@
+{
+  "students": [
+    {
+      "id": 2,
+      "name": "hpqyrxxshy",
+      "gender": "1",
+      "age": "18",
+      "hobbies": "阿斯达嗒嗒嗒嗒嗒"
+    },
+    {
+      "id": 4,
+      "name": "lishi",
+      "gender": 0,
+      "age": 18,
+      "hobbies": "play a game"
+    },
+    {
+      "id": 6,
+      "name": "zhangsan",
+      "gender": 0,
+      "age": 18,
+      "hobbies": "play a game"
+    },
+    {
+      "name": "冯杰林",
+      "gender": "0",
+      "age": "24",
+      "hobbies": "阿斯达嗒嗒嗒嗒嗒",
+      "id": 7
+    }
+  ]
+}
