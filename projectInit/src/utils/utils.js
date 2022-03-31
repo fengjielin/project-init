@@ -1,5 +1,6 @@
 // 格式化数组形成树形结构  递归
 function formatTree(data) {
+  if (!data || !Array.isArray(data)) return false;
   let parents = data.filter((p) => p.pid === 0),
     children = data.filter((c) => c.pid !== 0);
   /* 遍历 判断谁是谁的父亲，谁是谁的儿子 */
@@ -288,7 +289,7 @@ function pageDataFn(number, pageSize, data) {
   return pagedata;
 }
 
-let util = {
+let utils = {
   formatTree,
   flattenTree,
   formatDate,
@@ -306,4 +307,4 @@ let util = {
   pageDataFn,
 };
 
-export default util;
+export default utils;

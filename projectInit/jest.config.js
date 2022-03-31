@@ -4,6 +4,15 @@
  */
 
 module.exports = {
+  testMatch: ["<rootDir>/tests/**/*.(spec|test).js?(x)"],
+  transform: {
+    // 将.js后缀的文件使用babel-jest处理
+    "^.+\\.js$": "babel-jest",
+  },
+  // 下面非要从重要, 将不忽略 lodash-es, other-es-lib 这些es库, 从而使babel-jest去处理它们
+  transformIgnorePatterns: [
+    "<rootDir>/node_modules/(?!(lodash-es|other-es-lib))",
+  ],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -17,7 +26,7 @@ module.exports = {
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  collectCoverage: true,
+  collectCoverage: false,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
@@ -184,7 +193,7 @@ module.exports = {
   // unmockedModulePathPatterns: undefined,
 
   // Indicates whether each individual test should be reported during the run
-  // verbose: undefined,
+  verbose: true, // 指示是否应在运行期间报告每个单独的测试  
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
