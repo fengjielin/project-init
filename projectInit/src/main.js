@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
 import axiosApi from "../src/utils/api";
-import qs from 'qs';
+import qs from "qs";
 
 import "../src/assets/css/common.css";
 import "../src/assets/css/common.less";
@@ -18,12 +18,26 @@ Vue.prototype.$delete = axiosApi.deleteRequest;
 Vue.prototype.$qs = qs;
 
 Vue.prototype.$get("comments");
-Vue.prototype.$post("posts", Vue.prototype.$qs.stringify({ title: "foo", body: "bar", userId: 1 }));
+Vue.prototype.$post(
+  "posts",
+  Vue.prototype.$qs.stringify({
+    title: "foo",
+    body: "bar",
+    userId: 1,
+  })
+);
 
 Vue.config.productionTip = false;
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title;
+  }
+  next();
+});
 
 new Vue({
   router,
   store,
-  render: h => h(App)
-}).$mount('#app');
+  render: (h) => h(App),
+}).$mount("#app");

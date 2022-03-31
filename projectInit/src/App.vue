@@ -1,25 +1,22 @@
 <template>
   <div id="app">
-    <!-- 你好hello vue!! -->
-    <p>hello vue!! {{name}}</p>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
   name: "App",
-  data(){
-    return {
-      name:""
-    }
-  }
+  data() {
+    return {};
+  },
 };
 </script>
 
 <style>
-#app{
+#app {
   text-align: center;
-  font-size:24px;
-  margin-top: 200px
+  font-size: 24px;
+  margin-top: 200px;
 }
 </style>
