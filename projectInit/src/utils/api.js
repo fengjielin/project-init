@@ -41,7 +41,7 @@ const getRequest = (url, params) => {
   return request({
     method: 'get',
     url: `${url}`,
-    data: params
+    params: params
   })
 }
 

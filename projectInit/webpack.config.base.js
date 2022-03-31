@@ -1,17 +1,17 @@
 const path = require("path"),
   HtmlWebpackPlugin = require("html-webpack-plugin"),
-  VueLoaderPlugin = require('vue-loader/lib/plugin');
+  VueLoaderPlugin = require("vue-loader/lib/plugin");
 module.exports = {
   entry: "./src/main.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "assets/js/[name].bundle.js",
-    chunkFilename: 'assets/js/[id].js'
+    chunkFilename: "assets/js/[id].js",
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
+      vue$: "vue/dist/vue.esm.js",
+    },
   },
   module: {
     rules: [
@@ -26,24 +26,25 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
         generator: {
-          filename: 'assets/images/[hash][ext][query]'
+          filename: "assets/images/[hash][ext][query]",
         },
         parser: {
           dataUrlCondition: {
-            maxSize: 8192
-          }
-        }
+            maxSize: 8192,
+          },
+        },
       },
       {
         test: /\.vue$/,
-        use: ['vue-loader']
-      }
+        use: ["vue-loader"],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
+      title: "htmlWebpackPlugin",
       minify: {
         removeComments: true,
         collapseWhitespace: true,

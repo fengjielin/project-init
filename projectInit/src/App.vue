@@ -10,7 +10,7 @@ export default {
   name: "App",
   data(){
     return {
-      name:"冯杰林"
+      name:""
     }
   }
 };
@@ -19,7 +19,7 @@ export default {
 <style>
 #app{
   text-align: center;
-  font-size:50px;
+  font-size:24px;
   margin-top: 200px
 }
 </style>
