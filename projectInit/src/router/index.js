@@ -7,7 +7,7 @@ const routes = [
   {
     path: "/",
     name: "",
-    redirect: "/index",
+    redirect: "/toDoc",
   },
   {
     path: "/app",
@@ -20,8 +20,18 @@ const routes = [
     meta: {
       title: "首页",
       requireAuth: true,
-  },
+    },
     component: (resolve) => require(["../views/Index.vue"], resolve),
+  },
+  {
+    path: "/toPDF",
+    name: "toPDF",
+    component: (resolve) => require(["../views/toPDF/toPDF.vue"], resolve),
+  },
+  {
+    path: "/toDoc",
+    name: "toDoc",
+    component: (resolve) => require(["../views/doc/ProjectDoc.vue"], resolve),
   },
 ];
 

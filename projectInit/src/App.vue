@@ -16,7 +16,7 @@ export default {
 <style>
 #app {
   text-align: center;
-  font-size: 24px;
-  margin-top: 200px;
+  font-size: 14px;
+  /* margin-top: 20px; */
 }
 </style>

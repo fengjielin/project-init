@@ -1,68 +1,81 @@
-import axios from 'axios';
+import Vue from "vue";
+import axios from "axios";
 
 function request(config) {
   // 1. 创建axios的实例
   const instance = axios.create({
-    baseURL: 'http://jsonplaceholder.typicode.com/',
-    timeout: 5000
-  })
+    // baseURL: 'http://jsonplaceholder.typicode.com/',
+    // baseURL: 'https://proj.gzzjxx.cn/teachingSys/',
+    // baseURL: "http://127.0.0.1:3000/",
+    baseURL: Vue.prototype.baseURL,
+    timeout: 5000,
+  });
 
   // 请求拦截器
-  instance.interceptors.request.use(config => {
-    // console.log(config);
-    return config;
-  }, err => {
-    console.log(err);
-  })
+  instance.interceptors.request.use(
+    (config) => {
+      // console.log(config);
+      return config;
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
 
   // 响应拦截器
-  instance.interceptors.response.use(res => {
-    // console.log(res);
-    return res;
-  }, err => {
-    console.log(err);
-  })
+  instance.interceptors.response.use(
+    (res) => {
+      // console.log(res);
+      return res;
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
 
   // 2. 发送真正的网络请求
-  return instance(config)
+  return instance(config);
 }
 
 // 传送json格式的post请求
-const postRequest = (url, params) => {
+const _post = (url, params) => {
   return request({
-    method: 'post',
+    method: "post",
     url: `${url}`,
-    data: params
-  })
-}
+    data: params,
+  });
+};
 
 // 传送json格式的get请求
-const getRequest = (url, params) => {
+const _get = (url, params) => {
   return request({
-    method: 'get',
+    method: "get",
     url: `${url}`,
-    params: params
-  })
-}
+    params: params,
+  });
+};
 
 // 传送json格式的put请求
-const putRequest = (url, params) => {
+const _put = (url, params) => {
   return request({
-    method: 'put',
+    method: "put",
     url: `${url}`,
-    data: params
-  })
-}
+    data: params,
+  });
+};
 
 // 传送json格式的delete请求
-const deleteRequest = (url, params) => {
+const _delete = (url, params) => {
   return request({
-    method: 'delete',
+    method: "delete",
     url: `${url}`,
-    data: params
-  })
-}
+    data: params,
+  });
+};
 
 export default {
-  postRequest, getRequest, putRequest, deleteRequest
-}
+  _post,
+  _get,
+  _put,
+  _delete,
+};

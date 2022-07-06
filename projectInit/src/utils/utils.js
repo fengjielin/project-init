@@ -39,6 +39,18 @@ function flattenTree(arr) {
   }
   return result;
 }
+// 遍历树结构
+function parseTreeJson(treeNodes, callback) {
+  if (!treeNodes || !treeNodes.length) return;
+  for (let i = 0, item; (item = treeNodes[i++]); ) {
+    callback(item);
+    let _children = item.children;
+    if (_children && _children.length > 0) {
+      let _parent = item;
+      parseTreeJson(_children, callback);
+    }
+  }
+}
 // 判断页码位置，当删除表格的一个元素后，页面数据刚好等于分页尺寸的倍数时，页码才进行减一
 function setPageNum(page) {
   if (page.pageNum !== 1 && (page.totalNum - 1) % page.pageSize === 0) {
